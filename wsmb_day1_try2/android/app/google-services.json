@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "894219630412",
+    "project_id": "wsmb-try-2-154d2",
+    "storage_bucket": "wsmb-try-2-154d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894219630412:android:f663319dec4a02706541e9",
+        "android_client_info": {
+          "package_name": "com.example.wsmb_day1_try2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvZNNlkIWpEOwyi0-joeGObP11XeLG7Dc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
