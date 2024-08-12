@@ -165,3 +165,6 @@ setState(() {
         .toList();
   }
 });
+
+
+int totalFare = rideList.fold(0, (sum, ride) => sum + ride.fare);
