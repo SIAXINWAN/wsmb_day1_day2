@@ -30,3 +30,20 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+final List<Ride> ridelist = [
+    Ride(10.5),
+    Ride(20.75),
+    Ride(15.25),
+    Ride(30.0),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    double totalFare = ridelist.fold(0.0, (sum, ride) => sum + ride.fare);
+
+    return Center(
+      child: Text(
+        'Total Fare: \$${totalFare.toStringAsFixed(2)}',
+        style: TextStyle(fontSize: 24),
+      ),
