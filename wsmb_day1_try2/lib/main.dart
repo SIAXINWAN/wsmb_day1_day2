@@ -64,3 +64,32 @@ return GestureDetector(
                 ),
               ),
             );
+
+import 'package:intl/intl.dart';
+
+void main() {
+  // 自定义格式的日期字符串
+  String dateString = "12/08/2024 14:30";
+
+  // 定义解析格式
+  DateFormat dateFormat = DateFormat("dd/MM/yyyy HH:mm");
+
+  // 解析字符串为 DateTime
+  DateTime parsedDate = dateFormat.parse(dateString);
+
+  // 获取当前时间
+  DateTime now = DateTime.now();
+
+  // 比较两个时间
+  if (parsedDate.isBefore(now)) {
+    print("The parsed date is before the current date.");
+  } else if (parsedDate.isAfter(now)) {
+    print("The parsed date is after the current date.");
+  } else {
+    print("The parsed date is exactly the current date.");
+  }
+
+  // 计算时间差（以天为单位）
+  Duration difference = parsedDate.difference(now);
+  print("Difference in days: ${difference.inDays}");
+}
