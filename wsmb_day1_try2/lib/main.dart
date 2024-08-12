@@ -144,3 +144,24 @@ class _FilteredRidesWidgetState extends State<FilteredRidesWidget> {
     );
   }
 }
+
+
+setState(() {
+  final now = DateTime.now();
+  
+  if (selectedSegment == 0) {
+    filteredRides = widget.rideList
+        .where((ride) {
+          final rideDate = DateTime.parse(ride.date);
+          return ride.riderIds.contains(rider?.id) && rideDate.isAfter(now);
+        })
+        .toList();
+  } else if (selectedSegment == 1) {
+    filteredRides = widget.rideList
+        .where((ride) {
+          final rideDate = DateTime.parse(ride.date);
+          return ride.like.contains(rider?.id) && rideDate.isBefore(now);
+        })
+        .toList();
+  }
+});
