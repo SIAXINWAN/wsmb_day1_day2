@@ -228,3 +228,15 @@ bool isJoin =false;
             },
             child: Text('Details'))
         ],
+
+List<int> allFares = rideList.map((ride) => ride.fare).toList();
+print(allFares);
+
+ListView.builder(
+  itemCount: rideList.length,
+  itemBuilder: (context, index) {
+    return ListTile(
+      title: Text('Ride ${index + 1} Fare: ${rideList[index].fare}'),
+    );
+  },
+)
