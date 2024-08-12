@@ -115,3 +115,63 @@ setState(() {
         .toList();
   }
 });
+
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+class Ride {
+  int fare;
+  String date;
+
+  Ride(this.fare, this.date);
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Filtered Fare Example'),
+        ),
+        body: FilteredRidesWidget(),
+      ),
+    );
+  }
+}
+
+class FilteredRidesWidget extends StatefulWidget {
+  @override
+  _FilteredRidesWidgetState createState() => _FilteredRidesWidgetState();
+}
+
+class _FilteredRidesWidgetState extends State<FilteredRidesWidget> {
+  List<Ride> ridelist = [
+    Ride(10, "12/08/2024 14:30"),
+    Ride(20, "12/08/2024 15:00"),
+    Ride(30, "12/08/2024 16:00"),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    DateFormat dateFormat = DateFormat("dd/MM/yyyy HH:mm");
+    DateTime now = DateTime.now();
+
+    List<Ride> filteredRides = ridelist
+        .where((ride) => dateFormat.parse(ride.date).isBefore(now))
+        .toList();
+
+    int totalFare = filteredRides.fold(0, (sum, ride) => sum + ride.fare);
+
+    return Center(
+      child: Text(
+        'Total Fare of Filtered Rides: \$${totalFare}',
+        style: TextStyle(fontSize: 24),
+      ),
+    );
+  }
+}
