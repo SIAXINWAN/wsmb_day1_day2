@@ -47,3 +47,20 @@ final List<Ride> ridelist = [
         'Total Fare: \$${totalFare.toStringAsFixed(2)}',
         style: TextStyle(fontSize: 24),
       ),
+
+return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return Dialog(
+              child: InteractiveViewer(
+                panEnabled: true, // 允许平移
+                minScale: 0.5,   // 最小缩放比例
+                maxScale: 3.0,   // 最大缩放比例
+                child: Image.network(
+                  'https://your-image-url-here.com',
+                  fit: BoxFit.contain,
+                ),
+              ),
+            );
