@@ -93,3 +93,25 @@ void main() {
   Duration difference = parsedDate.difference(now);
   print("Difference in days: ${difference.inDays}");
 }
+
+import 'package:intl/intl.dart';
+
+setState(() {
+  DateFormat dateFormat = DateFormat("dd/MM/yyyy HH:mm");
+
+  if (selectedSegment == 0) {
+    filteredRides = widget.rideList
+        .where((ride) => 
+            ride.riderIds.contains(rider?.id) && 
+            dateFormat.parse(ride.date).isBefore(DateTime.now())
+        )
+        .toList();
+  } else if (selectedSegment == 1) {
+    filteredRides = widget.rideList
+        .where((ride) => 
+            ride.like.contains(rider?.id) && 
+            dateFormat.parse(ride.date).isBefore(DateTime.now())
+        )
+        .toList();
+  }
+});
