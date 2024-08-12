@@ -168,3 +168,5 @@ setState(() {
 
 
 int totalFare = rideList.fold(0, (sum, ride) => sum + ride.fare);
+
+double totalFare = rideList.fold(0, (sum, ride) => sum + ride.fare);
